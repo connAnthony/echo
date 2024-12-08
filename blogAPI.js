@@ -12,14 +12,14 @@ app.use(bodyParser.json());
 
 
 app.get('/', asyncHandler(async (req, res) => {
-    let blogPosts =  await BlogPost.find().sort({date : -1});
+    let blogPosts =  await BlogPost.find().sort({date : 1});
     res.status(201).json(blogPosts);
 }));
 
 
 app.post('/new', asyncHandler(async (req, res) => {
     const blogPost = new BlogPost({author: req.body.author, 
-        date: req.body.date,
+        date: Date.now(),
         title: req.body.title,
         text: req.body.text,
         contentURL: req.body.contentURL});
@@ -41,8 +41,8 @@ app.get('/delete/id/:id', asyncHandler(async (req, res) => {
 }));
 
 
-app.get('/delete/date', asyncHandler(async (req, res) => {
-    const postDate = req.query.postDate;
+app.get('/delete/date/:date', asyncHandler(async (req, res) => {
+    const postDate = req.params.date;
     const blogPost = await BlogPost.findOneAndDelete({date: postDate});
     if (blogPost) {
         res.status(201).json(blogPost);
@@ -51,8 +51,8 @@ app.get('/delete/date', asyncHandler(async (req, res) => {
     };
 }));
 
-app.get('/delete/title', asyncHandler(async (req, res) => {
-    const postTitle = req.query.postTitle;
+app.get('/delete/title/:title', asyncHandler(async (req, res) => {
+    const postTitle = req.params.title;
     const blogPost = await BlogPost.findOneAndDelete({title: postTitle});
     if (blogPost) {
         res.status(201).json(blogPost);
@@ -60,7 +60,6 @@ app.get('/delete/title', asyncHandler(async (req, res) => {
         res.status(404).json({nessage : "Blog post title does not exist."});
     }
 }));
-
 
 
 
