@@ -15,7 +15,7 @@ fetchPosts().then(posts => {
         postElement.innerHTML = `
         <div class="post-header">
             <h2 class="title">
-                <a href="blog.html?id=${post._id}" class="post-link">${post.title}</a>
+                <a href="post.html?id=${post._id}" class="post-link">${post.title}</a>
             </h2>
             <div class="post-meta">
                 <span class="author">${post.author}</span>

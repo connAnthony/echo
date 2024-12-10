@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Make Post</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./event.html">Events</a></li>
+            <li><a href="./fav.html">Favorites</a></li>
+        </ul>
+    </nav>
+    <!-- This code was written by GitHub Copilot -->
+    <form action="/submit_post" method="post" enctype="multipart/form-data">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required><br><br>
+        
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+        
+        <label for="text">Text:</label>
+        <textarea id="text" name="text" rows="4" cols="50" required></textarea><br><br>
+        
+        <label for="media">Upload Media:</label>
+        <input type="file" id="media" name="media"><br><br>
+        
+        <input type="submit" id="submit" value="Submit">
+    </form>
+    <script src="js/make_post_script.js"></script>
+    <footer>
+        <p>&copy; 2024 Echo</p>
+    </footer>
+</body>
+</html>
