@@ -1,58 +1,57 @@
-const postContainer = document.getElementById("postContainer");
+// blogscript.js
 
-// Utility function to get query parameters
-function getQueryParams() {
-    const params = new URLSearchParams(window.location.search);
-    return Object.fromEntries(params.entries());
+// Function to get query parameter by name from URL
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
 }
 
-// Fetch the specific post using its ID
-async function fetchPostById(postId) {
+// Function to fetch the post by ID
+async function fetchPost(id) {
     try {
-        const response = await fetch(`http://localhost:3000/post/id/${postId}`);
-        if (!response.ok) {
-            throw new Error("Failed to fetch the post.");
+        console.log(`http://localhost:3000/post/id/${id}`)
+        const response = await fetch(`http://localhost:3000/post/id/${id}`);
+        const post = await response.json();
+        if (response.ok) {
+            return post;
+        } else {
+            throw new Error("Post not found");
         }
-        return response.json();
     } catch (error) {
-        console.error("Error fetching the post:", error);
+        console.error("Error fetching post:", error);
         return null;
     }
 }
 
-// Render the post in the container
+// Function to render the post
 function renderPost(post) {
-    if (!post) {
-        postContainer.innerHTML = "<h2>Post not found.</h2>";
-        return;
-    }
+    const postContainer = document.querySelector(".postContainer");
 
     postContainer.innerHTML = `
-        <div class="post">
-            <h2 class="title">${post.title}</h2>
+        <div class="post-header">
+            <h1 class="title">${post.title}</h1>
             <div class="post-meta">
                 <span class="author">${post.author}</span>
-                <span class="date">${new Date(post.date).toLocaleDateString()}</span>
+                <span class="date">${Date(post.date)}</span>
             </div>
-            <div class="post-content">
-                <p>${post.content}</p>
-            </div>
+        </div>
+        <div class="post-content">
+            <p>${post.text}</p>
         </div>
     `;
 }
 
-// Main function to load the post
-async function loadPost() {
-    const { id } = getQueryParams();
-
-    if (!id) {
-        postContainer.innerHTML = "<h2>No post ID specified in the URL.</h2>";
-        return;
+// Main script
+document.addEventListener("DOMContentLoaded", async () => {
+    const postId = getQueryParam("id");
+    if (postId) {
+        const post = await fetchPost(postId);
+        if (post) {
+            renderPost(post);
+        } else {
+            document.querySelector(".postcontainer").innerHTML = "<p>Post not found.</p>";
+        }
+    } else {
+        document.querySelector(".postcontainer").innerHTML = "<p>Invalid post ID.</p>";
     }
-
-    const post = await fetchPostById(id);
-    renderPost(post);
-}
-
-// Load the post when the script runs
-loadPost();
+});

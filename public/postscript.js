@@ -46,4 +46,5 @@ async function submitPost() {
     titleInput.value = '';
     textInput.value = '';
     mediaInput.value = '';
+    alert("Post submitted successfully.");
 }
