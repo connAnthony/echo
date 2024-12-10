@@ -42,4 +42,8 @@ async function submitPost() {
     } else {
         alert("Must have author, title, and either/or text or media feilds filled out.");
     }
+    authorInput.value = '';
+    titleInput.value = '';
+    textInput.value = '';
+    mediaInput.value = '';
 }
