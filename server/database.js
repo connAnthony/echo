@@ -14,7 +14,7 @@ async function connectToDB() {
 
 const blogPostSchema = new mongoose.Schema({
     author: String,
-    date: String, // Date?
+    date: Date, 
     title: String,
     text: String,
 	contentURL: String,
