@@ -9,11 +9,9 @@ function getQueryParam(name) {
 // Function to fetch the post by ID
 async function fetchPost(id) {
     try {
-        console.log(`http://localhost:3000/post/id/${id}`)
         const response = await fetch(`http://localhost:3000/post/id/${id}`);
-        const post = await response.json();
         if (response.ok) {
-            return post;
+            return response.json();
         } else {
             throw new Error("Post not found");
         }
@@ -28,9 +26,9 @@ function renderPost(post) {
     const postContainer = document.querySelector(".postContainer");
 
     postContainer.innerHTML = `
-        <div class="post-header">
+        <div class="single-post-header">
             <h1 class="title">${post.title}</h1>
-            <div class="post-meta">
+            <div class="single-post-meta">
                 <span class="author">${post.author}</span>
                 <span class="date">${Date(post.date)}</span>
             </div>

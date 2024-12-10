@@ -1,24 +1,4 @@
 /* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #e6f7ff; /* Baby blue background */
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure full viewport height */
-}
-
-/* Ensure main content grows to fill available space */
-main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-}
-
 /* Header Styling */
 header {
     background-color: #87ceeb; /* Light sky blue */
@@ -56,6 +36,26 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #575757;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e6f7ff; /* Baby blue background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Ensure main content grows to fill available space */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
 }
 
 /* Button Styling */
@@ -206,3 +206,36 @@ footer {
     background-color: #cc0000; /* Darker red */
     transform: scale(1.05); /* Slight zoom effect */
 }
+
+
+/* Ensure the entire post is centered */
+.single-post-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.single-post-header .title {
+    font-size: 2em; /* Size of the title */
+    font-weight: bold; /* Make title bold */
+    margin: 0;
+}
+
+.single-post-meta {
+    font-size: 0.9em; /* Smaller font size for author and date */
+    color: grey; /* Grey color for author and date */
+    font-style: italic; /* Make author and date italic */
+    margin-top: 5px; /* Add some space between title and meta */
+}
+
+.post-content {
+    font-size: 1em; /* Regular text size */
+    line-height: 1.6; /* Line height for readability */
+    margin-top: 20px; /* Space above the text content */
+    margin-left: calc(33.33%);
+    margin-right: calc(33.33%);
+}
+
+.post-content p {
+    margin: 0; /* Remove default margin from paragraphs */
+}
+

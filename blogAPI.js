@@ -19,8 +19,7 @@ app.get('/', asyncHandler(async (req, res) => {
 // used by blogscript.js
 app.get('/post/id/:id', asyncHandler(async (req, res) => {
     const postId = req.params.id;
-    
-    
+
     // Find the blog post by its id
     const blogPost = await BlogPost.findById(postId);
     
