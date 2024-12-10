@@ -1,0 +1,125 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e6f7ff; /* Baby blue background */
+    color: #333;
+}
+
+header {
+    background-color: #87ceeb; /* Light sky blue */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Button Styling */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    margin: 160px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 10px 0; /* Vertical spacing between buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: #add8e6; /* Baby blue */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 200px; /* Fixed button width for consistent layout */
+    text-align: center;
+}
+
+button:hover {
+    background-color: #87ceeb; /* Light sky blue */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Form Styling */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #add8e6; /* Baby blue */
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #87ceeb; /* Light sky blue */
+}
+
+/* Navigation Styling */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+/* Footer (optional) */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #87ceeb; /* Light sky blue */
+    color: white;
+    margin-top: 20px;
+}
