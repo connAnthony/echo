@@ -6,8 +6,20 @@ body {
     box-sizing: border-box;
     background-color: #e6f7ff; /* Baby blue background */
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full viewport height */
 }
 
+/* Ensure main content grows to fill available space */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+/* Header Styling */
 header {
     background-color: #87ceeb; /* Light sky blue */
     color: white;
@@ -24,8 +36,10 @@ h1 {
 .button-container {
     display: flex;
     flex-direction: column; /* Arrange buttons vertically */
+    justify-content: space-evenly; /* Evenly spaced buttons */
     align-items: center; /* Center buttons horizontally */
-    margin: 160px 0;
+    margin: 20px 0;
+    height: 300px; /* Adjust height to space buttons vertically */
 }
 
 button {
@@ -115,11 +129,11 @@ nav ul li a:hover {
     background-color: #575757;
 }
 
-/* Footer (optional) */
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 10px 0;
     background-color: #87ceeb; /* Light sky blue */
     color: white;
-    margin-top: 20px;
+    margin-top: auto; /* Push footer to the bottom */
 }
