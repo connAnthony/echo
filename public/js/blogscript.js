@@ -35,6 +35,7 @@ function renderPost(post) {
         </div>
         <div class="post-content">
             <p>${post.text}</p>
+            ${post.contentURL ? `<img src="${post.contentURL}" alt="Post image" class="post-image">` : ""}
         </div>
     `;
 }

@@ -16,7 +16,6 @@ app.get('/', asyncHandler(async (req, res) => {
     res.status(201).json(blogPosts);
 }));
 
-// used by blogscript.js
 app.get('/post/id/:id', asyncHandler(async (req, res) => {
     const postId = req.params.id;
 
@@ -29,7 +28,6 @@ app.get('/post/id/:id', asyncHandler(async (req, res) => {
         res.status(404).json({ message: "Post not found" }); // If post not found, send 404 error
     }
 }));
-
 
 app.post('/new', asyncHandler(async (req, res) => {
     const blogPost = new BlogPost({author: req.body.author, 
