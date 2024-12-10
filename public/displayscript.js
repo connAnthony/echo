@@ -14,7 +14,13 @@ fetchPosts().then(posts => {
             <h2>${post.title} - ${post.author}</h2>
             <p>${post.text}</p>
             <p>${Date(post.date)}</p>
+            <button class="deleteButton">Delete</button>
         `;
+        const deleteButton = postElement.querySelector(".deleteButton");
+        deleteButton.addEventListener("click", async () => {
+            postsWindow.removeChild(postElement);
+            return await fetch(`http://localhost:3000/delete/id/${post._id}`);
+        });
         postsWindow.appendChild(postElement);
     });
 }).catch(error => {
