@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 
 
-const dbConnectionUri = "mongodb+srv://" + "connorfagan" + ":" + "hQR99cpWxYjbRZYT" + "@connors-cluster.5p7zb.mongodb.net/?retryWrites=true&w=majority&appName=connors-cluster";
+const dbConnectionUri = `mongodb+srv://${process.env.NAME}:${process.env.MONGODB_PASSWORD}@connors-cluster.5p7zb.mongodb.net/?retryWrites=true&w=majority&appName=connors-cluster`;
 const dbName = "echo";
 
 // console.log(dbConnectionUri);
