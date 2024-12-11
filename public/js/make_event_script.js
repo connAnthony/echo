@@ -26,7 +26,7 @@ async function submitEvent() {
 
     if (theOrganizer && theTitle && theDescription && theLocation && theDate && theTime) {
         try {
-            await fetch("http://localhost:3000/events/new", {
+            await fetch("http://localhost:3000/event/new", {
                 method: "POST",
                 body: JSON.stringify({
                     organizer: theOrganizer,

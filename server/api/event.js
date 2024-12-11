@@ -5,7 +5,7 @@ const { Event } = require("../database");
 const router = express.Router();
 
 // Get all events, sorted by date
-router.get("/", asyncHandler(async (req, res) => {
+router.get("/events", asyncHandler(async (req, res) => {
     const events = await Event.find().sort({ date: 1 });
     res.status(200).json(events);
 }));
@@ -23,7 +23,7 @@ router.get("/id/:id", asyncHandler(async (req, res) => {
 }));
 
 // Create a new event
-router.post("/new", asyncHandler(async (req, res) => {
+router.post("/event/new", asyncHandler(async (req, res) => {
     const event = new Event({
         organizer: req.body.organizer,
         date: req.body.date,
